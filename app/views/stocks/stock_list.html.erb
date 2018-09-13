@@ -1,0 +1,22 @@
+<br>
+<h1>貸出</h1>
+<table class="type1">
+  <tr>
+    <th>製品種別</th>
+    <th>メーカ</th>
+    <th>シリアルナンバー</th>
+    <th>ステータス</th>
+    <th>貸出処理</th>
+  </tr>
+  <% @stock.each do |stock| %>
+    <% if stock.situation == "在庫" %>
+      <tr>
+        <td><%= stock.product_type %></td>
+        <td><%= stock.manufacturer %></td>
+        <td><%= stock.serial_number %></td>
+        <td><%= stock.situation %></td>
+        <td><%= link_to "貸出", edit_stock_path(stock.id) %></td>
+    <% end %>
+    </tr>
+  <% end %>
+</table>

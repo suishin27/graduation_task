@@ -1,0 +1,35 @@
+<h1>ユーザ登録画面</h1>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <table class="type2">
+    <tr>
+      <th><%= f.label :user_name, "名前" %></th>
+      <td><%= f.text_field :user_name, class: 'form-control', placeholder: "ツール利用者" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :login_id, "ログインID" %></th>
+      <td><%= f.email_field :login_id, class: 'form-control', placeholder: "メールアドレス" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :password, "パスワード" %></th>
+      <td><%= f.password_field :password, class: 'form-control', placeholder: "パスワード" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :password_confirmation, "パスワード再入力　" %></th>
+      <td><%= f.password_field :password_confirmation, class: 'form-control', placeholder: "パスワード再入力" %></td>
+    </tr>
+  </table>
+  <br>
+  <%= f.submit "ユーザ登録", class: 'btn btn-default' %>
+<% end %>

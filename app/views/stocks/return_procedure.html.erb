@@ -1,0 +1,23 @@
+<h1>返却</h1>
+
+  <table class="type1">
+    <tr>
+      <th>製品種別</th>
+      <th>メーカ</th>
+      <th>シリアルナンバー</th>
+      <th>ステータス</th>
+    </tr>
+    <tr>
+      <td><%= @stock.product_type %></td>
+      <td><%= @stock.manufacturer %></td>
+      <td><%= @stock.serial_number %></td>
+      <td><%= @stock.situation %></td>
+    </tr>
+</table>
+<br>
+<%= form_with(model: @stock, local: true) do |f| %>
+  <%= f.hidden_field :situation, value: '在庫' %>
+  <%= f.hidden_field :staff_id, value: nil %>
+  <%= f.submit "返却登録" , class: 'btn btn-default'%>
+
+<% end %>

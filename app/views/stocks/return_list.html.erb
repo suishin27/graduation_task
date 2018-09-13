@@ -1,0 +1,20 @@
+<h1>返却</h1>
+<table class="type1">
+  <tr>
+    <th>スタッフID</th>
+    <th>スタッフ名</th>
+    <th>レンタル品</th>
+    <th>返却処理</th>
+  </tr>
+  <% @stock.each do |stock| %>
+    <% if stock.situation == "レンタル中" %>
+      <tr>
+        <td><%= stock.staff.staff_id %></td>
+        <td><%= stock.staff.staff_name %></td>
+        <td><%= stock.product_type %></td>
+        <td><%= link_to "返却", controller: "stocks", action: "return_procedure", id: stock.id %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+    

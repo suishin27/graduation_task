@@ -1,0 +1,43 @@
+<h2>在庫一覧画面</h2>
+
+
+<!--<#%= search_form_for @search do |f| %>-->
+  <!--<#%= f.label :situation, '製品' %>-->
+  <!--<#%= f.text_field :situation %>-->
+  <!--<#%= f.submit '検索する' %>-->
+<!--<#% end %>-->
+
+
+<table class="type1">
+  <tr>
+    <th><%= sort_link(@search, :product_type, '製品', default_order: :desc) %></th>
+    <th><%= sort_link(@search, :manufacturer, 'メーカ', default_order: :desc) %></th>
+    <th><%= sort_link(@search, :serial_number, 'シリアル', default_order: :desc) %></th>
+    <th><%= sort_link(@search, :situation, '状況', default_order: :desc) %></th>
+    <th>最終利用者</th>
+    <th><%= sort_link(@search, :situation, '貸出処理', default_order: :desc) %></th>
+    <th><%= sort_link(@search, :situation, '返却処理', default_order: :desc) %></th>
+  </tr>
+
+<% @stock.each do |stock| %>
+  <tr>
+    <td><%= stock.product_type %></td>
+    <td><%= stock.manufacturer %></td>
+    <td><%= stock.serial_number %></td>
+    <td><%= stock.situation %></td>
+    <td><% if stock.staff_id == "0" %>
+          <%= "利用なし" %>
+        <% else %>
+          <%= stock.staff.staff_name %>
+        <% end %>
+    </td>
+    <% if stock.situation == "在庫" %>
+      <td><%= link_to "貸出", edit_stock_path(stock.id) %></td>
+      <td></td>
+    <% else %>
+      <td></td>
+      <td><%= link_to "返却", controller: "stocks", action: "return_procedure", id: stock.id %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>

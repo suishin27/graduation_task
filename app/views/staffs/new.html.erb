@@ -1,0 +1,50 @@
+<% if @staff.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@staff.errors.count, "error") %> prohibited this @staff from being saved:</h2>
+    <ul>
+      <% @staff.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h2>スタッフ登録</h2>
+<%= form_with(model: @staff, local: true, url: confirm_staffs_path ) do |f| %>
+  <table class="type2">
+    <tr>
+      <th><%= f.label :staff_id, "CAVAID※" %></th>
+      <td><%= f.text_field :staff_id ,class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :staff_name, "名前※" %></th>
+      <td><%= f.text_field :staff_name ,class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :postal_code, "郵便番号※" %></th>
+      <td><%= f.text_field :postal_code ,class: 'form-control'  %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :street_address_1, "住所1※" %></th>
+      <td><%= f.text_field :street_address_1,class: 'form-control'  %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :street_address_2, "住所2" %></th>
+      <td><%= f.text_field :street_address_2 ,class: 'form-control'  %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :phone_number_1, "電話番号1※" %></th>
+      <td><%= f.text_field :phone_number_1 ,class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :phone_number_2, "電話番号2" %></th>
+      <td><%= f.text_field :phone_number_2 ,class: 'form-control' %></td>
+    </tr> 
+    <tr>
+      <th><%= f.label :remarks, "備考" %></th>
+      <td><%= f.text_field :remarks ,class: 'form-control'%></td>
+    </tr>
+  </table>
+  <br>
+  <%= f.submit "スタッフ登録" , class: 'btn btn-default' %>
+<% end %>

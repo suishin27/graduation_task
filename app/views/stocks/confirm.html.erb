@@ -1,0 +1,40 @@
+<h3>以下の内容で登録する。</h3>
+
+<%= form_with(model: @stock, url: stocks_path, local: true) do |form| %>
+  <%= form.hidden_field :product_type %>
+  <%= form.hidden_field :manufacturer %>
+  <%= form.hidden_field :serial_number %>
+  <%= form.hidden_field :asset_management_number %>
+  <%= form.hidden_field :remarks %>
+  <%= form.hidden_field :situation %>
+
+  <table class="type3">
+    <tr>
+      <th>製品種別</th>
+      <td><%= @stock.product_type %></td>
+    </tr>
+    <tr>
+      <th>メーカ</th>
+      <td><%= @stock.manufacturer %></td>
+    </tr>
+    <tr>
+      <th>シリアルナンバー</th>
+      <td><%= @stock.serial_number %></td>
+    </tr>
+    <tr>
+      <th>資産管理番</th>
+      <td><%= @stock.asset_management_number %></td>
+    </tr>
+    <tr>
+      <th>備考</th>
+      <td><%= @stock.remarks %></td>
+    </tr>
+    <tr>
+      <th>在庫状況</th>
+      <td><%= @stock.situation %></td>
+    </tr>
+  
+  </table>
+  <br>
+  <%= form.submit  "登録する" ,class: 'btn btn-default' %>
+<% end %>

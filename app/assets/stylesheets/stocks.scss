@@ -1,0 +1,52 @@
+// Place all the styles related to the stocks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*------------------------*/
+table.type1 {
+  border-collapse:collapse;
+  margin:0 ;
+}
+.type1 th {
+  color:#005ab3;
+}
+.type1 td {
+  border-bottom:1px dashed #999;
+}
+
+.type1 th,.type1 tr:last-child td {
+  border-bottom:2px solid #005ab3;
+}
+.type1 td,th {
+  padding:10px;
+}
+
+/*---------------------*/
+table.type2{
+  border-collapse:collapse;
+  margin:0 ;
+}
+.type2 td,th{
+
+  padding:10px;
+}
+.type2 th{
+  border-left:5px solid #005ab3;
+  color:#005ab3;
+}
+
+/*---------------------*/
+table.type3{
+  border-collapse:collapse;
+  margin:0 ;
+}
+.type3 td,.type3 th{
+  border:1px solid #ccc;
+  padding:10px;
+  width: 200px;
+  height: 50px;
+}
+.type3 th{
+  border-left:5px solid #005ab3;
+  color:#005ab3;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GraduationTask</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+
+
+  <body>
+    <div class="container-fluid">
+      <ul class="nav nav-pills">
+        <% if logged_in? %>
+          <li role="presentation"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+          <li role="presentation"><%= link_to "メニュー", users_path %></li>
+          <br>
+        <% else %>
+          <li role="presentation"><%= link_to "ユーザ登録", new_user_path %></li>
+          <li role="presentation"><%= link_to "ログイン", new_session_path %></li>
+        <% end %>
+        <br><br>
+        <% flash.each do |key, value| %>
+          <% key = "info" if key == "notice" %>
+          <% key = "danger" if key == "alert" %>
+          <%= content_tag :div, value, class: "alert alert-#{key}" %>
+        <% end %>
+        <li class="col-md-1"></li>
+        <li class="col-md-10">
+          <%= yield %>
+        </li>
+        <li class="col-md-1"></li>
+      </ul>
+    
+    </body>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">
+          <% if logged_in? %>
+            <%= "「#{current_user.user_name}」　ログイン中" %>
+          <% end %> </p>
+      </div>
+    </footer>
+  </div>
+</html>

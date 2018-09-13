@@ -1,0 +1,19 @@
+<h2>在庫管理すーる</h2>
+
+<h4>ログイン</h4>
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+  <table class="type2">
+    <div class="input-group">
+      <tr>
+        <th><%= f.label :login_id, "ログインID　" %></th>
+        <td><%= f.email_field :login_id ,class: 'form-control', placeholder: "メールアドレス"  %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :password, "パスワード　" %></th>
+        <td><%= f.password_field :password,class: 'form-control', placeholder: "パスワード" %></td>
+      </tr>
+    </table>
+    <br>
+    <%= f.submit "ログイン", class: 'btn btn-default' %>
+  </div>
+<% end %>

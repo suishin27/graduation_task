@@ -1,0 +1,29 @@
+<% stock_pc = @stock.where(product_type: 'PC') %>
+<% stock_disp = @stock.where(product_type: 'ディスプレイ') %>
+<h2>在庫集計</h2>
+<table Class="type1">
+  <tr>
+    <th>製品</th>
+    <th>在庫数</th>
+    <th>貸出し数</th>
+    <th>製品計</th>
+  </tr>
+  <tr>
+    <td>PC</td>
+    <td><%= pc_stock_total = stock_pc.where(situation: '在庫').count %></td>
+    <td><%= pc_rent_total = stock_pc.where(situation: 'レンタル中').count %></td>
+    <td><%= pc_rent_total + pc_stock_total %></td>
+  </tr>
+  <tr>
+    <td>ディスプレイ</td>
+    <td><%= disp_stock_total = stock_disp.where(situation: '在庫').count %></td>
+    <td><%= disp_rent_total = stock_disp.where(situation: 'レンタル中').count %></td>
+    <td><%= disp_rent_total + disp_stock_total %></td>
+  </tr>
+  <tr>
+    <td>縦計</td>
+    <td><%= rent_total = pc_rent_total + disp_rent_total %></td>
+    <td><%= stock_total = pc_stock_total + disp_stock_total %></td>
+    <td><%= rent_total + stock_total %></td>
+  </tr>
+</table>

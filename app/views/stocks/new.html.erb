@@ -1,0 +1,40 @@
+<% if @stock.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@stock.errors.count, "error") %> prohibited this @stock from being saved:</h2>
+    <ul>
+      <% @stock.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h2>在庫登録</h2>
+<%= form_with(model: @stock, local: true, url: confirm_stocks_path ) do |f| %>
+  <table class="type2">
+    <tr>
+      <th><%= f.label :product_type, "製品種別"  %></th>
+      <td>
+        <%= f.select :product_type, [["PC", "PC"],["ディスプレイ", "ディスプレイ"]] ,class: 'form-control' %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :manufacturer, "メーカ" %></th>
+      <td><%= f.select :manufacturer, [["東芝", "東芝"],["NEC", "NEC"]] ,class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :serial_number, "シリアルナンバー" %></th>
+      <td><%= f.text_field :serial_number  ,class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :asset_management_number, "資産管理番" %></th>
+      <td><%= f.text_field :asset_management_number  ,class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :remarks, "備考" %></th>
+      <td><%= f.text_field :remarks  ,class: 'form-control' %></td>
+    </tr>
+  </table>
+  <br>
+  <%= f.submit "在庫登録", class: 'btn btn-default' %>
+<% end %>

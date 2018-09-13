@@ -1,0 +1,50 @@
+<h3>以下の内容で登録する。</h3>
+
+<%= form_with(model: @staff, url: staffs_path, local: true) do |form| %>
+  <%= form.hidden_field :staff_id %>
+  <%= form.hidden_field :staff_name %>
+  <%= form.hidden_field :postal_code %>
+  <%= form.hidden_field :street_address_1 %>
+  <%= form.hidden_field :street_address_2 %>
+  <%= form.hidden_field :phone_number_1 %>
+  <%= form.hidden_field :phone_number_2 %>
+  <%= form.hidden_field :enrolled %>
+  <%= form.hidden_field :scheduled_return_date %>
+  <%= form.hidden_field :remarks %>
+
+  <table class="type3">
+    <tr>
+      <th>ID</th><td><%= @staff.staff_id %></td>
+    </tr>
+    <tr>
+      <th>名前</th><td><%= @staff.staff_name %></td>
+    </tr>
+    <tr>
+      <th>郵便番号</th><td><%= @staff.postal_code %></td>
+    </tr>
+    <tr>
+      <th>住所1</th><td><%= @staff.street_address_1 %></td>
+    </tr>
+    <tr>
+      <th>住所2</th><td><%= @staff.street_address_2 %></td>
+    </tr>
+    <tr>
+      <th>電話番号1</th><td><%= @staff.phone_number_1 %></td>
+    </tr>
+    <tr>
+      <th>電話番号2</th><td><%= @staff.phone_number_2 %></td>
+    </tr>
+    <tr>
+      <th>在籍状況</th><td><%= @staff.enrolled %></td>
+    </tr>
+    <tr>
+      <th>返却予定日</th><td><%= @staff.scheduled_return_date %></td>
+    </tr>
+    <tr>
+      <th>備考</th><td><%= @staff.remarks %></td>
+    </tr>
+
+  </table>
+  <br>
+  <%= form.submit  "登録する",class: 'btn btn-default' %>
+<% end %>

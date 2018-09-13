@@ -1,0 +1,22 @@
+<h1>貸出</h1>
+<table class="type1">
+    <th>製品種別</th>
+    <th>メーカ</th>
+    <th>シリアルナンバー</th>
+    <th>ステータス</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= @stock.product_type %></td>
+    <td><%= @stock.manufacturer %></td>
+    <td><%= @stock.serial_number %></td>
+    <td><%= @stock.situation %></td>
+  </tr>
+</table>
+<br>
+<%= form_with(model: @stock, local: true ) do |f| %>
+  <%= f.label :staff_id, "スタッフID"  %>
+  <%= f.collection_select :staff_id, Staff.all, :id, :staff_id%>
+  <%= f.submit "貸出登録" , class: 'btn btn-default'%>
+  <%= f.hidden_field :situation, value: 'レンタル中' %>
+<% end %>
