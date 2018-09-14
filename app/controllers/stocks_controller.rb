@@ -99,7 +99,6 @@ class StocksController < ApplicationController
     if logged_in?
       #
     else
-      
       redirect_to new_session_path, notice:"ログインしてね"
     end
   end
