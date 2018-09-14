@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :current_user_loggin?, only: [:new, :index]
   
   def index
   end
@@ -23,11 +22,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:user_name, :login_id, :password,
                                  :password_confirmation)
   end
-  def current_user_loggin?
-    if logged_in?
-      #
-    else
-      redirect_to new_session_path, notice:"ログインしてね"
-    end
-  end  
 end

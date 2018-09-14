@@ -1,5 +1,5 @@
 class StaffsController < ApplicationController
-
+before_action :current_user_loggin?, only: [:new, :edit]
   def new
     @staff = Staff.new
   end
@@ -43,4 +43,11 @@ class StaffsController < ApplicationController
                                  :phone_number_1, :phone_number_2,
                                  :enrolled, :scheduled_return_date, :remarks)
   end
+  def current_user_loggin?
+    if logged_in?
+      #
+    else
+      redirect_to new_session_path, notice:"ログインしてね"
+    end
+  end  
 end
