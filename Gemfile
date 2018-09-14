@@ -57,5 +57,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt', '3.1.11'
 gem 'ransack'
-gem 'rails-i18n' # この行を追加(ransackには関係ないけどdate_select用)
+gem 'rails-i18n'
 gem 'toastr-rails'

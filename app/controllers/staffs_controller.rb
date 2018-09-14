@@ -16,10 +16,12 @@ class StaffsController < ApplicationController
   
   def confirm
     @staff = Staff.new(staff_params)
+    render :new if @staff.invalid?
   end
   
   def edit
     @stock = Stock.find(params[:id])
+    
   end
 
   def update

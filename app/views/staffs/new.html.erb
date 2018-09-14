@@ -1,6 +1,6 @@
 <% if @staff.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@staff.errors.count, "error") %> prohibited this @staff from being saved:</h2>
+    <h2><%= pluralize(@staff.errors.count, "つのエラーがあり登録できませんでした") %> </h2>
     <ul>
       <% @staff.errors.full_messages.each do |message| %>
         <li><%= message %></li>

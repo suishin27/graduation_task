@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      staff: スタッフ
+    attributes:
+      staff:
+        staff_id: スタッフID
+        staff_name: 名前
+        postal_code: 郵便番号
+        street_address_1: 住所1
+        street_address_2: 住所2
+        phone_number_1: 電話番号1
+        phone_number_2: 電話番号2
+        remarks: 備考

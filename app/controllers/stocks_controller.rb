@@ -34,6 +34,7 @@ class StocksController < ApplicationController
   
   def confirm
     @stock = Stock.new(stock_params)
+    render :new if @stock.invalid?
   end
   
   def edit
