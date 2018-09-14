@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
   before_action :current_user_loggin?, only: [:new, :edit, :aggregate, :index, :return_list, :return_procedure, :stock_list]
-
+  
 #検索画面
   def index
     @search = Stock.ransack(params[:q]) 
@@ -11,13 +11,11 @@ class StocksController < ApplicationController
       @stock　= Stock.where(params[:serial_number])
     end
   end
-
 #在庫貸出し関連
   def stock_list
     @stock = Stock.all
   end
-  
-  
+
   def new
     @stock = Stock.new
   end
@@ -84,7 +82,6 @@ class StocksController < ApplicationController
     format.json { render json: @stock }
   end
   end
-
   
 #private------------------------------------------------------------------
   private

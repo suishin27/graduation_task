@@ -1,9 +1,9 @@
 class StaffsController < ApplicationController
 before_action :current_user_loggin?, only: [:new, :edit]
+
   def new
     @staff = Staff.new
   end
-  
   def create
     @staff = Staff.new(staff_params)
     if @staff.save
@@ -29,11 +29,7 @@ before_action :current_user_loggin?, only: [:new, :edit]
     @stock = Stock.find(params[:id])
     @stock.staff_id = nil
     @stock.situation = "在庫"
-    
   end
-
-
-
 
   private
   

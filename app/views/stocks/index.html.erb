@@ -1,13 +1,9 @@
 <h2>在庫一覧画面</h2>
-
-
 <!--<#%= search_form_for @search do |f| %>-->
   <!--<#%= f.label :situation, '製品' %>-->
   <!--<#%= f.text_field :situation %>-->
   <!--<#%= f.submit '検索する' %>-->
 <!--<#% end %>-->
-
-
 <table class="type1">
   <tr>
     <th><%= sort_link(@search, :product_type, '製品', default_order: :desc) %></th>
@@ -18,7 +14,6 @@
     <th><%= sort_link(@search, :situation, '貸出処理', default_order: :desc) %></th>
     <th><%= sort_link(@search, :situation, '返却処理', default_order: :desc) %></th>
   </tr>
-
 <% @stock.each do |stock| %>
   <tr>
     <td><%= stock.product_type %></td>
