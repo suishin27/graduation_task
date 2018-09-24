@@ -21,7 +21,7 @@ Requirement
 ・Ruby 2.4.0
 ・Rails 5.1.6
 ・PostgreSQL 10.1
-・Bootstrap 3.
+・Bootstrap 3
 
 Usage
 このアプリケーションを利用する場合、以下URLにアクセスし、利用者登録を行ってください。
