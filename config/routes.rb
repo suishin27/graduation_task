@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :staffs, only: [:new, :create, :edit, :index] do
     collection do
       post :confirm
-      #post :update
     end
   end
   post "/staffs/new" => "staffs#create"
